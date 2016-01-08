@@ -9,6 +9,7 @@
 extension Hero {
     
     func policingItems(inventory: [UDItem], policingFilter: UDItem throws -> Void) -> [UDPolicingError:Int] {
+        
         return [UDPolicingError:Int]()
     }    
 }
