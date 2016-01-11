@@ -14,11 +14,13 @@ extension Hero {
             badgeRequestTypes.append(requestType)
         }
         var hasBadge = false
-        for rt in requestTypes {
-            if badgeRequestTypes.contains(rt) {
+        
+        for rt in badges {
+            if badgeRequestTypes.contains(rt.requestType) {
                 hasBadge = true
             } else {
                 hasBadge = false
+                return hasBadge
             }
         }
         return hasBadge
