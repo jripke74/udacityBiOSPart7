@@ -9,8 +9,31 @@
 extension Hero {
     
     func policingItems(inventory: [UDItem], policingFilter: UDItem throws -> Void) -> [UDPolicingError:Int] {
+        var errorDictionary:[UDPolicingError : Int] = [:]
         
-        return [UDPolicingError:Int]()
+        if inventory.isEmpty {
+            return errorDictionary
+        }
+        
+        var nameContainsLaserCount = 0
+        var valueLessThanTenCount = 0
+        var itemFromCuniaCount = 0
+        
+        for item in inventory {
+            if item.name.containsString("laser") {
+                nameContainsLaserCount += 1
+                errorDictionary[.NameContainsLaser] = nameContainsLaserCount
+            } else if item.baseValue < 10 {
+                valueLessThanTenCount += 1
+                errorDictionary[.ValueLessThan10] = valueLessThanTenCount
+            } else if let _ = item.inscription?.containsString("Cunia") {
+                itemFromCuniaCount += 1
+                errorDictionary[.ItemFromCunia] = itemFromCuniaCount
+            }
+        }
+        
+        
+        return errorDictionary
     }    
 }
 

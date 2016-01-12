@@ -42,7 +42,6 @@ class SettingsViewController: UIViewController {
     // MARK: Add Targets
     
     func addTargets() {
-        print("adding targets!")
         levelSegmentedControl.addTarget(self, action: Selector("switchLevel:"), forControlEvents: .ValueChanged)
         showBadgesSwitch.addTarget(self, action: Selector("showBadges:"), forControlEvents: .TouchUpInside)
         startGameButton.addTarget(self, action: Selector("startGame"), forControlEvents: .TouchUpInside)
@@ -52,12 +51,10 @@ class SettingsViewController: UIViewController {
     
     func switchLevel(segmentControl: UISegmentedControl) {
         Settings.Common.Level = segmentControl.selectedSegmentIndex
-        print("level control has changed!")
     }
     
     func showBadges(switchControl: UISwitch) {
         Settings.Common.ShowBadges = switchControl.on
-        print("show badges switch has changed!")
     }
     
     func startGame() {
@@ -65,6 +62,5 @@ class SettingsViewController: UIViewController {
             as! AlienAdventureViewController
         self.presentViewController(alienAdventureViewController,
             animated: true, completion: nil)
-        print("start button has been pressed!")
     }
 }

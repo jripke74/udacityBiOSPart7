@@ -7,8 +7,14 @@
 //
 
 extension Hero {
-    
     func inscriptionEternalStar(inventory: [UDItem]) -> UDItem? {
+        var eternalStar: UDItem
+        for item in inventory {
+            if item.inscription?.rangeOfString("THE ETERNAL STAR") != nil {
+                eternalStar = item
+                return eternalStar
+            }
+        }
         return nil
     }
 }
