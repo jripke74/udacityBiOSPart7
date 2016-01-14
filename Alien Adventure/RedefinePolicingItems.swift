@@ -22,7 +22,7 @@ extension Hero {
             if item.historicalData["PlanetOfOrigin"] as? String == "Cunia" {
                 throw UDPolicingError.ItemFromCunia
             }
-            if item.name.lowercaseString.containsString("Laser") {
+            if item.name.lowercaseString.containsString("laser") {
                 throw UDPolicingError.NameContainsLaser
             }
             if item.baseValue < 10 {
