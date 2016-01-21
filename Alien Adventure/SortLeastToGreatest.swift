@@ -9,7 +9,11 @@
 extension Hero {
     
     func sortLeastToGreatest(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
+        
+        let sortedItemList = inventory.sort(<)
+
+        return sortedItemList
+        
     }
     
 }
